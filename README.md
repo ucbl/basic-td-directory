@@ -1,6 +1,6 @@
 # Basic TD Directory
 
-A very simple Java/servlet application that performs the usual directory operations over Web of Things (WoT) Thing Descriptions (TD) as specified in the [W3C WoT TD Proposed Recommendation](https://www.w3.org/TR/2020/PR-wot-thing-description-20200130/) of 2020/01/30.
+A very simple Java/servlet application that performs usual directory operations over Web of Things (WoT) Thing Descriptions (TD) as specified in the [W3C WoT TD Proposed Recommendation](https://www.w3.org/TR/2020/PR-wot-thing-description-20200130/) of 2020/01/30.
 
 As it performs validation against an internal copy of the JSON schema from the TD spec, this webapp is standalone and suitable for environments without Internet access (intranet, local VM...).
 
