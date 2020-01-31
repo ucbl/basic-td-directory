@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test form</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://perso.liris.cnrs.fr/~lmedini/enseignement/medini.css">
+    <style>
+        .active {
+            display: block;
+        }
+
+        .inactive {
+            display: none;
+        }
+        input, textarea {
+            border: 1px solid black;
+        }
+    </style>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script>
+        function show(hash) {
+            $('.active').removeClass('active').addClass('inactive');
+            $(hash).removeClass('inactive').addClass('active');
+        }
+    </script>
+</head>
+<body>
+<div id="menu">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href='#bind'>Bind</a></li>
+        <li><a href='#unbind'>Unbind</a></li>
+        <li><a href='#lookup'>Lookup</a></li>
+        <li><a href='#list'>List</a></li>
+    </ul>
+</div>
+<div id="principale">
+    <h1>Test basic TD directory</h1>
+    <section id='bind' class='active'>
+        <h2>(re)Bind a Thing Description</h2>
+        <form action="bind" method="post" target="result">
+            <p>TD name <input type="text" name="tdName"></p>
+            <p>TD content <textarea name="tdContent"></textarea></p>
+            <p><input type="submit" value="Bind"></p>
+        </form>
+    </section>
+    <section id='unbind' class='inactive'>
+        <h2>Unbind a Thing Description</h2>
+        <form action="unbind" method="post" target="result">
+            <p>TD name <input type="text" name="tdName"></p>
+            <p><input type="submit" value="Unbind"></p>
+        </form>
+    </section>
+    <section id='lookup' class='inactive'>
+        <h2>Lookup a Thing Description</h2>
+        <form action="lookup" method="get" target="result">
+            <p>TD name <input type="text" name="tdName"></p>
+            <p><input type="submit" value="Lookup"></p>
+        </form>
+    </section>
+    <section id='list' class='inactive'>
+        <form action="list" method="get" target="result">
+            <h2>List all Thing Descriptions</h2>
+            <p><input type="submit" value="List"></p>
+        </form>
+    </section>
+    <hr>
+    <h2>Results</h2>
+    <iframe name="result" style="width: 100%"></iframe>
+</div>
+<script>
+    window.addEventListener('hashchange', () => {
+        show(window.location.hash);
+    });
+</script>
+</body>
+</html>
